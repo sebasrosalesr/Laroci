@@ -22,22 +22,16 @@ st.markdown("---")
 # ============== HELPERS ==============
 
 def call_combo_single(ain: str) -> dict:
-    """Call GET /combo/{ain} on the FastAPI service."""
+    """Run the same combo logic directly (no HTTP)."""
     ain = ain.strip()
-    url = f"{API_BASE}/combo/{ain}"
-    r = requests.get(url, timeout=20)
-    r.raise_for_status()
-    return r.json()
+    return get_combined(ain)
 
 
 def call_combo_batch(ains: List[str]) -> dict:
-    """Call POST /combo/batch with a list of AINs."""
+    """Run batch combo logic directly (no HTTP)."""
     clean = [a.strip() for a in ains if a.strip()]
-    url = f"{API_BASE}/combo/batch"
-    payload = {"ains": clean}
-    r = requests.post(url, json=payload, timeout=40)
-    r.raise_for_status()
-    return r.json()
+    request = BatchRequest(ains=clean)
+    return combo_batch(request)
 
 
 def render_single_result(res: dict, show_raw: bool = False) -> None:
@@ -174,9 +168,5 @@ if run_btn:
                             render_single_result(res, show_raw=show_raw_json)
                             st.markdown("---")
 
-    except requests.HTTPError as e:
-        st.error(f"HTTP error from zoning API: {e}")
-    except requests.RequestException as e:
-        st.error(f"Network error calling zoning API: {e}")
     except Exception as e:
         st.error(f"Unexpected error: {e}")
