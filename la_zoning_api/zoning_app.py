@@ -6,9 +6,6 @@ import requests
 import streamlit as st
 from main import get_combined, combo_batch, BatchRequest
 
-# FastAPI container base URL
-API_BASE = "http://localhost:8000"
-
 
 # ============== PAGE CONFIG ==============
 st.set_page_config(
