@@ -1,10 +1,10 @@
-from main import get_combined, combo_batch, BatchRequest
 import json
 from typing import List
 
 import pandas as pd
 import requests
 import streamlit as st
+from main import get_combined, combo_batch, BatchRequest
 
 # FastAPI container base URL
 API_BASE = "http://localhost:8000"
