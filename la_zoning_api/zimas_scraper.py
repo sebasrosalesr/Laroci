@@ -1,4 +1,4 @@
-# zimas_ultra_pro.py
+# zimas_scraper.py
 # Author: Sebastian Rosales
 # Portfolio: https://github.com/yourusername/zimas-ultra-pro
 # Description: Blazing-fast, headless, CSV-exporting ZIMAS scraper.
