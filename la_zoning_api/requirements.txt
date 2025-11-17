@@ -1,3 +1,15 @@
-fastapi==0.115.0
-uvicorn[standard]==0.30.0
-requests==2.32.3
+# Core API
+fastapi==0.115.4          # Latest patch (security + perf)
+uvicorn[standard]==0.32.0 # Major upgrade: better async, WebSocket, stability
+requests==2.32.3          # Already latest — good!
+
+# Streamlit (for frontend)
+streamlit==1.39.0         # Latest stable
+
+# Data & Async
+pandas==2.2.3             # Latest
+playwright==1.48.0        # For zimas_scraper.py
+aiofiles==24.1.0          # Async file handling
+
+# Optional: Dev tools
+python-multipart==0.0.9   # For file uploads in FastAPI
